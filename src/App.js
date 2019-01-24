@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class App extends Component {
     constructor(props) {
         super(props);
@@ -10,17 +9,14 @@ export default class App extends Component {
         };
         
         // check the api and redo this
-        fetch('camunda/api/tasks')
-            .then(x => this.setState({tasks: x}));
+        fetch('localhost:8080/engine-rest/task')
+            .then(res => res.json())
+            .then(json => this.setState({tasks: json}));
     }
     
     render() {
         return <div>
-            
             <h1>Task list</h1>
-            
-            
-            
         </div>
     }
 }
