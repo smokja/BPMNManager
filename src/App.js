@@ -9,14 +9,19 @@ export default class App extends Component {
         };
         
         // check the api and redo this
-        fetch('localhost:8080/engine-rest/task')
-            .then(res => res.json())
-            .then(json => this.setState({tasks: json}));
+        fetch('http://localhost:80/camunda/engine-rest/task', {
+            method: "GET",
+        }).then(res => res.json())
+        .then(json => this.setState({tasks: json}))
+        .catch();
     }
     
     render() {
         return <div>
             <h1>Task list</h1>
+            {
+                this.state.tasks.map(x => <p>{x.name}</p>)
+            }
         </div>
     }
 }
