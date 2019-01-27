@@ -1,3 +1,37 @@
+## BPMN frontend
+
+Managed by Kubernetes, Nginx and Docker.
+Config files of each Tool can be found on the repository.
+
+## Build
+
+### Kubernetes
+
+kubectl create -f .
+
+### Docker
+
+docker build --no-cache -t smokja/bpmn:x.x.x .
+docker push smokja/bpmn:x.x.x
+
+### Nginx
+
+brew install nginx
+- change the nginx.conf file to proxy_pass /camunda path to port 8080
+- allow Cross origin request sharing, so applications on different ports can make calls to it
+sudo nginx
+
+To stop nginx
+sudo nginx -s stop
+
+
+### Debugging and development with node
+
+npm start
+
+
+## Create-react-app readme
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
