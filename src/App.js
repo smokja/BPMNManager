@@ -9,9 +9,8 @@ export default class App extends Component {
         };
         
         // check the api and redo this
-        fetch('http://localhost:8080/engine-rest/task', {
-            method: "GET",
-        }).then(res => res.json())
+        fetch('http://localhost:8080/engine-rest/task')
+        .then(res => res.json())
         .then(json => this.setState({tasks: json}))
         .catch();
     }
