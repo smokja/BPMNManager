@@ -9,7 +9,7 @@ export default class App extends Component {
         };
         
         // check the api and redo this
-        fetch('http://localhost:8080/engine-rest/task')
+        fetch('http://localhost/camunda/engine-rest/task')
         .then(res => res.json())
         .then(json => this.setState({tasks: json}))
         .catch();
